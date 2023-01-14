@@ -1,8 +1,9 @@
 <div class="text-center mt-3">
     <h3>CẬP NHẬT PHÒNG</h3>
     <hr>
-    <form method="post" action="/admin/phongban">
+    <form method="post" action="/admin/phongban/{{$phongban->id}}">
         @csrf
+        @method('put')
         <div class="mb-1 mt-3 row justify-content-center">
             <label for="tenPhong" class="col-2 col-form-label offset-2">Tên phòng</label>
             <div class="col">
@@ -23,7 +24,7 @@
             <label for="vietTat" class="col-2 col-form-label offset-2">Tên viết tắt</label>
             <div class="col">
                 <input type="text" class="form-control shadow-sm" id="vietTat" name="vietTat"
-                       placeholder="Tên viết tắt..." value="{{old('vietTat')}}">
+                       placeholder="Tên viết tắt..." value="{{$phongban->vietTat}}">
             </div>
         </div>
 
@@ -39,7 +40,7 @@
             <label for="vietTat" class="col-2 col-form-label offset-2">Ghi chú</label>
             <div class="col">
                 <input type="text" class="form-control shadow-sm" id="ghiChu" name="ghiChu"
-                       placeholder="Ghi chú..." value="{{old('ghiChu')}}">
+                       placeholder="Ghi chú..." value="{{$phongban->ghiChu}}">
             </div>
         </div>
 

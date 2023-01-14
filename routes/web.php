@@ -28,4 +28,8 @@ Route::post('/admin/phongban',[PhongBanController::class,'store']);
 
 Route::get('/admin/phongban/{phongban}/edit',[PhongBanController::class,'edit']);
 
+Route::put('/admin/phongban/{phongban}',[PhongBanController::class,'update']);
+
+Route::delete('/admin/phongban/{phongban}',[PhongBanController::class,'destroy']);
+
 Route::get('/admin/phongban/{phongban}',[PhongBanController::class,'show']);

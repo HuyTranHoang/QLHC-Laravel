@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('phong_bans', function (Blueprint $table) {
-            $table->id('maPhong');
+            $table->id();
             $table->string('tenPhong');
             $table->string('vietTat');
             $table->string('ghiChu');

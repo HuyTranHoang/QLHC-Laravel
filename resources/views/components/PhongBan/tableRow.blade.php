@@ -1,8 +1,14 @@
 @props(['phongban','index'])
 <tr>
     <td>{{++$index}}</td>
-    <td><a class="text-decoration-none" href="/admin/phongban/{{$phongban->maPhong}}/edit">{{$phongban->tenPhong}}</a></td>
+    <td><a class="text-decoration-none" href="/admin/phongban/{{$phongban->id}}/edit">{{$phongban->tenPhong}}</a></td>
     <td>{{$phongban->vietTat}}</td>
-    <td><i style="cursor:pointer;" class="fa-duotone fa-x"></i></td>
+    <td>
+        <form method="post" action="/admin/phongban/{{$phongban->id}}">
+            @csrf
+            @method('delete')
+            <button class="border-0"><i class="fa-duotone text-danger fa-x"></i></button>
+        </form>
+    </td>
 
 </tr>
