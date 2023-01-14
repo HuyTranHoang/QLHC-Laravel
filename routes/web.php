@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhongBanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin', function () {
+    return view('admin/home');
+});
+
+Route::get('/admin/phongban',[PhongBanController::class,'index']);
+
+Route::post('/admin/phongban',[PhongBanController::class,'store']);
+
+Route::get('/admin/phongban/{phongban}/edit',[PhongBanController::class,'edit']);
+
+Route::get('/admin/phongban/{phongban}',[PhongBanController::class,'show']);
