@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="$title">
     @if(@isset($phongban))
         @include('admin.phongbans._Form_Edit')
     @else

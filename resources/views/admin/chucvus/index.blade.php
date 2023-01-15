@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="$title">
 
     @if(@isset($chucvu))
         @include('admin.chucvus._Form_Edit')

@@ -9,7 +9,8 @@ class PhongBanController extends Controller
 {
     public function index() {
         return view ('admin.phongbans.index',[
-           'phongbans' => PhongBan::paginate(8)
+            'phongbans' => PhongBan::paginate(8),
+            'title' => 'QLHC | PhongBan'
         ]);
     }
 
@@ -34,7 +35,8 @@ class PhongBanController extends Controller
     public function edit(PhongBan $phongban) {
         return view('admin.phongbans.index',[
             'phongbans' => PhongBan::paginate(8),
-            'phongban' => $phongban
+            'phongban' => $phongban,
+            'title' => 'QLHC | PhongBan'
         ]);
     }
 

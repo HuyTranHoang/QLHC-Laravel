@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <title>Quản lý hành chính</title>
+    <title>{{$title}}</title>
 </head>
 <body>
 <div class="container-fluid">

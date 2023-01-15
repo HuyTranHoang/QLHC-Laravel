@@ -9,7 +9,8 @@ class ChucVuController extends Controller
 {
     public function index() {
         return view ('admin.chucvus.index',[
-            'chucvus' => ChucVu::paginate(8)
+            'chucvus' => ChucVu::paginate(8),
+            'title' => 'QLHC | ChucVu'
         ]);
     }
 
@@ -31,7 +32,8 @@ class ChucVuController extends Controller
     public function edit(ChucVu $chucvu) {
         return view('admin.chucvus.index',[
             'chucvus' => ChucVu::paginate(8),
-            'chucvu' => $chucvu
+            'chucvu' => $chucvu,
+            'title' => 'QLHC | ChucVu'
         ]);
     }
 

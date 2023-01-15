@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="$title">
     <div class="mt-3">
         <h3 class="text-center">HOME PLACEHOLDER</h3>
         <hr>
