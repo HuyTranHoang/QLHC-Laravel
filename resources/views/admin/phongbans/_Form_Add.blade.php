@@ -55,9 +55,6 @@
             <div class="col-6">
                 <input type="submit" class="btn d-inline-block text-light btn-sakura" name="addpb" value="Thêm mới">
             </div>
-            <div class="col-6" id="confirm">
-
-            </div>
         </div>
     </form>
 </div>

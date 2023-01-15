@@ -14,10 +14,9 @@ class PhongBanController extends Controller
     }
 
     public function show(PhongBan $phongban) {
-        return view('admin.phongbans.show',[
-           'phongban' => $phongban
-        ]);
+        abort(404);
     }
+
     public function store(Request $request) {
         $formFields = $request -> validate([
             'tenPhong' => 'required',
@@ -26,8 +25,10 @@ class PhongBanController extends Controller
         ]);
 
         PhongBan::create($formFields);
+        toastr()->success('Thêm phòng '.$request['tenPhong'].' thành công!');
 
-        return redirect('/admin/phongban') -> with('message','Thêm phòng ban thành công!');
+//        return redirect('/admin/phongban') -> with('message','Thêm phòng ban thành công!');
+        return redirect('/admin/phongban');
     }
 
     public function edit(PhongBan $phongban) {
@@ -46,12 +47,15 @@ class PhongBanController extends Controller
 
         $phongban->update($formFields);
 
-        return back() -> with('message','Cập nhật phòng ban thành công!');
+        toastr()->success('Cập nhật phòng ban thành công!');
+//        return back() -> with('message','Cập nhật phòng ban thành công!');
+        return back();
     }
 
     public function destroy(PhongBan $phongban) {
         $phongban->delete();
-        return redirect('/admin/phongban') -> with('message','Xóa phòng ban thành công!');
-
+        toastr()->success('Xóa phòng '.$phongban['tenPhong'].' thành công!');
+//        return redirect('/admin/phongban') -> with('message','Xóa phòng ban thành công!');
+        return redirect('/admin/phongban');
     }
 }

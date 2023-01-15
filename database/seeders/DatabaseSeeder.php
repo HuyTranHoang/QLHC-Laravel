@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ChucVu;
 use App\Models\PhongBan;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\User::factory(10)->create();
 
          PhongBan::factory(5)->create();
+         ChucVu::factory(5)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

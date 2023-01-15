@@ -7,7 +7,7 @@
         <form method="post" action="/admin/phongban/{{$phongban->id}}">
             @csrf
             @method('delete')
-            <button class="border-0"><i class="fa-duotone text-danger fa-x"></i></button>
+            <button class="bg-light border-0"><i class="fa-duotone text-danger fa-x"></i></button>
         </form>
     </td>
 
