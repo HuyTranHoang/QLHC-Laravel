@@ -22,14 +22,18 @@ class DatabaseSeeder extends Seeder
 
          PhongBan::factory(5)->create();
          ChucVu::factory(5)->create();
+         NhanVien::factory(5)->create();
+
+//        for ($i = 0; $i < 5; $i ++) {
+//            $phongBan = PhongBan::factory()->create();
+//            $ChucVu = ChucVu::factory()->create();
 //
-//         $phongBan = PhongBan::factory()->create();
-//         $ChucVu = ChucVu::factory()->create();
-//
-//         NhanVien::factory(5)->create([
-//             'maPhong' => $phongBan->maPhong,
-//             'maCV' => $ChucVu->maCV
-//         ]);
+//            NhanVien::factory()->create([
+//                'maPhong' => $phongBan,
+//                'maCV' => $ChucVu
+//            ]);
+//        }
+
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

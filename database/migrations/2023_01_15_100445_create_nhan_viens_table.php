@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tenNV');
             $table->string('userName');
             $table->string('password');
-            $table->binary('gioiTinh');
+            $table->boolean('gioiTinh');
             $table->date('ngaySinh');
             $table->string('hinh');
             $table->timestamps();

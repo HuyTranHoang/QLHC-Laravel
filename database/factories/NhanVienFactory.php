@@ -14,7 +14,11 @@ class NhanVienFactory extends Factory
             'password' => $this->faker->password,
             'gioiTinh' => $this->faker->numberBetween(0,1),
             'ngaySinh' => $this->faker->date,
-            'hinh' => $this->faker->url,
+            'hinh' => 'hinhs/default.jpg',
+
+            'maCV' => $this->faker->numberBetween(1,5),
+            'maPhong' => $this->faker->numberBetween(1,5)
+
         ];
     }
 }

@@ -14,6 +14,6 @@ class PhongBan extends Model
     protected $fillable = ['tenPhong','vietTat','ghiChu'];
 
     public function NhanVien() {
-        return $this->hasMany(NhanVien::class);
+        return $this->hasMany(NhanVien::class,'maPhong','maPhong');
     }
 }

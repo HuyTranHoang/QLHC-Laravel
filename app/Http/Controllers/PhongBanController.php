@@ -14,7 +14,7 @@ class PhongBanController extends Controller
         ]);
     }
 
-    public function show(PhongBan $phongban) {
+    public function show(PhongBan $phongBan) {
         abort(404);
     }
 
@@ -27,37 +27,32 @@ class PhongBanController extends Controller
 
         PhongBan::create($formFields);
         toastr()->success('Thêm phòng '.$request['tenPhong'].' thành công!');
-
-//        return redirect('/admin/phongban') -> with('message','Thêm phòng ban thành công!');
         return redirect('/admin/phongban');
     }
 
-    public function edit(PhongBan $phongban) {
+    public function edit(PhongBan $phongBan) {
         return view('admin.phongbans.index',[
             'phongbans' => PhongBan::paginate(8),
-            'phongban' => $phongban,
+            'phongban' => $phongBan,
             'title' => 'QLHC | PhongBan'
         ]);
     }
 
-    public function update(Request $request, PhongBan $phongban) {
+    public function update(Request $request, PhongBan $phongBan) {
         $formFields = $request -> validate([
             'tenPhong' => 'required',
             'vietTat' => 'required',
             'ghiChu' => 'required'
         ]);
 
-        $phongban->update($formFields);
-
+        $phongBan->update($formFields);
         toastr()->success('Cập nhật phòng ban thành công!');
-//        return back() -> with('message','Cập nhật phòng ban thành công!');
         return back();
     }
 
-    public function destroy(PhongBan $phongban) {
-        $phongban->delete();
-        toastr()->success('Xóa phòng '.$phongban['tenPhong'].' thành công!');
-//        return redirect('/admin/phongban') -> with('message','Xóa phòng ban thành công!');
+    public function destroy(PhongBan $phongBan) {
+        $phongBan->delete();
+        toastr()->success('Xóa phòng '.$phongBan['tenPhong'].' thành công!');
         return redirect('/admin/phongban');
     }
 }

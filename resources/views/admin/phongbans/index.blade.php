@@ -11,8 +11,8 @@
         <table class="table table-striped table-bordered">
             <tr class="table-primary">
                 <th>#</th>
-                <th>Tên phòng</th>
-                <th>Tên viết tắt</th>
+                <th class="w-50">Tên phòng</th>
+                <th class="w-25">Tên viết tắt</th>
                 <th><i class="fa-duotone fa-trash"></i></th>
             </tr>
 
@@ -31,5 +31,4 @@
     <div>
         {{$phongbans->links()}}
     </div>
-
 </x-layout>

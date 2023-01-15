@@ -14,7 +14,7 @@ class ChucVuController extends Controller
         ]);
     }
 
-    public function show(ChucVu $chucvu) {
+    public function show(ChucVu $chucVu) {
         abort(404);
     }
 
@@ -25,32 +25,30 @@ class ChucVuController extends Controller
 
         ChucVu::create($formFields);
         toastr()->success('Thêm chức vụ '.$request['chucVu'].' thành công!');
-
         return redirect('/admin/chucvu');
     }
 
-    public function edit(ChucVu $chucvu) {
+    public function edit(ChucVu $chucVu) {
         return view('admin.chucvus.index',[
             'chucvus' => ChucVu::paginate(8),
-            'chucvu' => $chucvu,
+            'chucvu' => $chucVu,
             'title' => 'QLHC | ChucVu'
         ]);
     }
 
-    public function update(Request $request, ChucVu $chucvu) {
+    public function update(Request $request, ChucVu $chucVu) {
         $formFields = $request -> validate([
             'chucVu' => 'required',
         ]);
 
-        $chucvu->update($formFields);
-
+        $chucVu->update($formFields);
         toastr()->success('Cập nhật chức vụ thành công!');
         return back();
     }
 
-    public function destroy(ChucVu $chucvu) {
-        $chucvu->delete();
-        toastr()->success('Xóa chức vụ '.$chucvu['chucVu'].' thành công!');
+    public function destroy(ChucVu $chucVu) {
+        $chucVu->delete();
+        toastr()->success('Xóa chức vụ '.$chucVu['chucVu'].' thành công!');
         return redirect('/admin/chucvu');
     }
 }

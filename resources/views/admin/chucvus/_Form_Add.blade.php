@@ -10,6 +10,16 @@
                        placeholder="Chức vụ..." value="{{old('chucVu')}}">
             </div>
         </div>
+
+        <div class="row mb-2">
+            @error('chucVu')
+            <div class="col offset-4 text-start">
+                <span class="text-danger fs-6">Chức vụ không được để trống</span>
+            </div>
+            @enderror
+        </div>
+
+
         <div class="mb-3 col-6">
             <input type="submit" class="btn text-light d-inline-block btn-sakura" name="addcv" value="Thêm mới">
         </div>

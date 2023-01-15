@@ -27,7 +27,5 @@
         <x-layouts.footer />
     </div>
 </div>
-
-<x-flash-message />
 </body>
 </html>

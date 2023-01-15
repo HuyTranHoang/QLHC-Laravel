@@ -11,15 +11,14 @@ class NhanVien extends Model
 
     protected  $primaryKey = 'maNV';
 
-    protected $fillable = ['tenNV','userName','password','gioiTinh','ngaySinh','hinh','maPhong','maCV'];
-
+    protected $fillable = ['tenNV','maPhong','maCV','userName','password','gioiTinh','ngaySinh','hinh'];
 
     public function PhongBan() {
-        return $this->belongsTo(PhongBan::class);
+        return $this->belongsTo(PhongBan::class,'maPhong','maPhong');
     }
 
     public function ChucVu() {
-        return $this->belongsTo(ChucVu::class);
+        return $this->belongsTo(ChucVu::class,'maCV','maCV');
     }
 
 }
