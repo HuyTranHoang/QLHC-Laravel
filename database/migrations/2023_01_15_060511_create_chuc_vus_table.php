@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('chuc_vus', function (Blueprint $table) {
-            $table->id();
+            $table->id('maCV');
             $table->string('chucVu');
             $table->timestamps();
         });

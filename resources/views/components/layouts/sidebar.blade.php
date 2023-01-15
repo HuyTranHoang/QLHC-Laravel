@@ -16,7 +16,8 @@
                 <i class="fa-regular fa-apartment me-2"></i> Phòng ban </a>
         </li>
         <li>
-            <a href="/admin/chucvu" class="nav-link text-dark">
+            <a href="/admin/chucvu" class="nav-link
+            @if(Str::contains(request()->getPathInfo(), 'chucvu')) active @else text-dark @endif">
                 <i class="fa-solid fa-badge-check me-2"></i> Chức vụ </a>
         </li>
         <li>

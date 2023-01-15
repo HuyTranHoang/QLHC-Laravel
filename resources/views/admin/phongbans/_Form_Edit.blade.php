@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>CẬP NHẬT PHÒNG</h3>
     <hr>
-    <form method="post" action="/admin/phongban/{{$phongban->id}}">
+    <form method="post" action="/admin/phongban/{{$phongban->maPhong}}">
         @csrf
         @method('put')
         <div class="mb-1 mt-3 row justify-content-center">

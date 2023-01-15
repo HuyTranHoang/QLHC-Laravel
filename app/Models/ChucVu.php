@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Database\Eloquent\Builder;
-
-/**
- * @mixin Builder
- */
 class ChucVu extends Model
 {
     use HasFactory;
 
+    protected  $primaryKey = 'maCV';
+
     protected $fillable = ['chucVu'];
+
+    public function NhanVien() {
+        return $this->hasMany(NhanVien::class);
+    }
 }
