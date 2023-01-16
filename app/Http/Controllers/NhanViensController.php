@@ -15,19 +15,29 @@ class NhanViensController extends Controller
         return view('login');
     }
 
-    public function checklogin(Request $request)
+    public function authenticate(Request $request)
     {
+        $formFields = $request->validate([
+            'username' => ['required'],
+            'password' => 'required'
+        ]);
 
-        $nhanViens = NhanVien::all();
-
-        foreach ($nhanViens as $nhanVien) {
-            if ($nhanVien->userName == $request -> userName && $nhanVien->password == $request->password) {
-                $request->session()->regenerate();
-                return redirect()->intended('/admin');
-            }
+        if (auth()->guard('nhanvien')->attempt($formFields)) {
+            $request->session()->regenerate();
+            toastr()->success('Đăng nhập thành công');
+            return redirect('/admin')->with('message','You are now logged in!');
         }
 
-        toastr()->error('Đăng nhập thất bại');
+        return redirect()->to('/')->withErrors(['message'=>'Sai tài khoản mật khẩu']);
+    }
+
+    public function logout(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        toastr()->success('Đăng xuất thành công');
         return redirect('/');
     }
 
@@ -59,6 +69,8 @@ class NhanViensController extends Controller
             'maPhong' => 'required',
             'maCV' => 'required',
         ]);
+
+        $formFields['password'] = bcrypt($request->password);
 
         if($request->hasFile('hinh')) {
             $formFields['hinh'] = $request->file('hinh')->store('hinhs','public');

@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'nhanvien' => [
+            'driver' => 'session',
+            'provider' => 'nhan_viens',
+        ],
     ],
 
     /*
@@ -64,6 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'nhan_viens' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\NhanVien::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -89,6 +97,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'nhan_viens' => [
+            'provider' => 'nhan_viens',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

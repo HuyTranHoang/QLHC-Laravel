@@ -17,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[NhanViensController::class,'login']);
-Route::post('/',[NhanViensController::class,'checklogin']);
+Route::get('/',[NhanViensController::class,'login']) -> name('login');
+Route::post('/authenticate',[NhanViensController::class,'authenticate']);
+Route::get('admin/logout',[NhanViensController::class,'logout']);
 
-Route::get('/admin', function () {
-    return view('admin/home')->with('title', 'Quản Lý Hành Chính');
-});
 
-Route::prefix('admin')->group(function () {
+
+Route::middleware('auth:nhanvien')->prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin/home')->with('title', 'Quản Lý Hành Chính');
+    });
     Route::resources([
         'phongban' => PhongBanController::class,
         'chucvu' => ChucVuController::class,
