@@ -26,7 +26,7 @@ class PhongBanController extends Controller
         ]);
 
         PhongBan::create($formFields);
-        toastr()->success('Thêm phòng '.$request['tenPhong'].' thành công!');
+        toastr()->success('Thêm phòng <b>'.$request['tenPhong'].'</b> thành công!');
         return redirect('/admin/phongban');
     }
 
@@ -46,13 +46,13 @@ class PhongBanController extends Controller
         ]);
 
         $phongBan->update($formFields);
-        toastr()->success('Cập nhật phòng ban thành công!');
+        toastr()->success('Cập nhật phòng ban <b>'.$request->tenPhong.'</b> thành công!');
         return back();
     }
 
     public function destroy(PhongBan $phongBan) {
         $phongBan->delete();
-        toastr()->success('Xóa phòng '.$phongBan['tenPhong'].' thành công!');
+        toastr()->warning('Xóa phòng <b>'.$phongBan['tenPhong'].'</b> thành công!','Xóa');
         return redirect('/admin/phongban');
     }
 }

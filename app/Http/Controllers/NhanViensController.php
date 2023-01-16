@@ -45,7 +45,7 @@ class NhanViensController extends Controller
         }
 
         NhanVien::create($formFields);
-        toastr()->success('Thêm nhân viên '.$request['tenNV'].' thành công!');
+        toastr()->success('Thêm nhân viên <b>'.$request['tenNV'].'</b> thành công!');
         return redirect('/admin/nhanvien');
     }
 
@@ -84,14 +84,14 @@ class NhanViensController extends Controller
         }
 
         $nhanVien->update($formFields);
-        toastr()->success('Cập nhật nhân viên '.$request['tenNV'].' thành công!');
+        toastr()->success('Cập nhật nhân viên <b>'.$request['tenNV'].'</b> thành công!');
         return back();
     }
 
     public function destroy(NhanVien $nhanVien)
     {
         $nhanVien->delete();
-        toastr()->success('Xóa nhân viên '.$nhanVien['tenNV'].' thành công!');
+        toastr()->warning('Xóa nhân viên <b>'.$nhanVien['tenNV'].'</b> thành công!','Xóa');
         return redirect('/admin/nhanvien');
     }
 }

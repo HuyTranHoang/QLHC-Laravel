@@ -7,10 +7,12 @@
     <link rel="icon" href="{{ asset('images/logo.png') }}">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
-    <script src="//unpkg.com/alpinejs" defer></script>
     <title>{{$title}}</title>
 </head>
 <body>
+
+<x-toastrStyle />
+
 <div class="container-fluid">
     <div class="row">
         <x-layouts.header />

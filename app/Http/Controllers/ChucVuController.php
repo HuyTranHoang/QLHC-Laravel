@@ -24,7 +24,7 @@ class ChucVuController extends Controller
         ]);
 
         ChucVu::create($formFields);
-        toastr()->success('Thêm chức vụ '.$request['chucVu'].' thành công!');
+        toastr()->success('Thêm chức vụ <b>'.$request['chucVu'].'</b> thành công!');
         return redirect('/admin/chucvu');
     }
 
@@ -42,13 +42,13 @@ class ChucVuController extends Controller
         ]);
 
         $chucVu->update($formFields);
-        toastr()->success('Cập nhật chức vụ thành công!');
+        toastr()->success('Cập nhật chức vụ <b>'.$request->chucVu.'</b> thành công!');
         return back();
     }
 
     public function destroy(ChucVu $chucVu) {
         $chucVu->delete();
-        toastr()->success('Xóa chức vụ '.$chucVu['chucVu'].' thành công!');
+        toastr()->warning('Xóa chức vụ <b> '.$chucVu['chucVu'].'</b> thành công!','Xóa');
         return redirect('/admin/chucvu');
     }
 }
