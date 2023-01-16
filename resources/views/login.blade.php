@@ -16,9 +16,10 @@
 </nav>
 <section class="loginform mt-5">
     <div class="row">
-        <div class="col"><img src="{{asset('images/loginForm.jpeg')}}" class="img-fluid"></div>
+        <div class="col"><img src="{{asset('images/loginForm.jpeg')}}" class="img-fluid" alt=""></div>
         <div class="col">
-            <form method="POST" action="">
+            <form method="POST" action="/">
+                @csrf
                 <div class="my-3 row text-center text-sakura"><i class="fa-duotone fa-flower fs-3"></i>
                     <h3 class="mt-3 mb-5">Hello again!</h3>
                 </div>
