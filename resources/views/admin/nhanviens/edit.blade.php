@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col"><h5>Thêm mới nhân viên</h5></div>
             <div class="col">
-                <a href="/admin/nhanvien"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
+                <a href="{{route('nhanvien.index')}}"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
             </div>
         </div>
 
         <hr class="mt-0">
 
-        <form method="POST" action="/admin/nhanvien/{{$nhanvien->maNV}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('nhanvien.update',[$nhanvien->maNV])}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3 mt-3 row justify-content-center">
@@ -32,7 +32,7 @@
                 <label for="userName" class="col-2 col-form-label offset-2">Username</label>
                 <div class="col">
                     <input type="text" class="form-control shadow-sm" id="userName" name="userName"
-                           placeholder="Username..." value="{{$nhanvien->userName}}">
+                           placeholder="Username..." value="{{$nhanvien->username}}">
                 </div>
             </div>
 

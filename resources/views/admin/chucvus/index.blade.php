@@ -26,4 +26,7 @@
             @endunless
         </table>
     </div>
+    <div>
+        {{$chucvus->links()}}
+    </div>
 </x-layout>

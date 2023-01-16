@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>QUẢN LÝ PHÒNG</h3>
     <hr>
-    <form method="post" action="/admin/phongban">
+    <form method="post" action="{{route('phongban.store')}}">
         @csrf
         <div class="mb-1 mt-3 row justify-content-center">
             <label for="tenPhong" class="col-2 col-form-label offset-2">Tên phòng</label>

@@ -6,7 +6,6 @@ use App\Models\ChucVu;
 use App\Models\NhanVien;
 use App\Models\PhongBan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class NhanViensController extends Controller
 {
@@ -32,7 +31,7 @@ class NhanViensController extends Controller
     }
 
     public function logout(Request $request) {
-        auth()->logout();
+        auth()->guard('nhanvien')->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -54,7 +53,7 @@ class NhanViensController extends Controller
         return view ('admin.nhanviens.create',[
             'phongbans' => PhongBan::all(),
             'chucvus' => ChucVu::all(),
-            'title' => 'QLHC | NhanVien'
+            'title' => 'QLHC | NhanVien-Create'
         ]);
     }
 
@@ -80,7 +79,7 @@ class NhanViensController extends Controller
 
         NhanVien::create($formFields);
         toastr()->success('Thêm nhân viên <b>'.$request['tenNV'].'</b> thành công!');
-        return redirect('/admin/nhanvien');
+        return redirect(route('nhanvien.index'));
     }
 
     public function show(NhanVien $nhanvien)

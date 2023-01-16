@@ -25,7 +25,7 @@ class ChucVuController extends Controller
 
         ChucVu::create($formFields);
         toastr()->success('Thêm chức vụ <b>'.$request['chucVu'].'</b> thành công!');
-        return redirect('/admin/chucvu');
+        return redirect(route('chucvu.index'));
     }
 
     public function edit(ChucVu $chucvu) {
@@ -49,6 +49,6 @@ class ChucVuController extends Controller
     public function destroy(ChucVu $chucvu) {
         $chucvu->delete();
         toastr()->warning('Xóa chức vụ <b> '.$chucvu['chucVu'].'</b> thành công!','Xóa');
-        return redirect('/admin/chucvu');
+        return redirect(route('chucvu.index'));
     }
 }

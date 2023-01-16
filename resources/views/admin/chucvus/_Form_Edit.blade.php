@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>QUẢN LÝ CHỨC VỤ</h3>
     <hr>
-    <form method="POST" action="/admin/chucvu/{{$chucvu->maCV}}">
+    <form method="POST" action="{{route('chucvu.update',[$chucvu->maCV])}}">
         @csrf
         @method('put')
         <div class="mb-3 mt-3 row justify-content-center">

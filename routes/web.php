@@ -4,6 +4,7 @@ use App\Http\Controllers\ChucVuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NhanViensController;
 use App\Http\Controllers\PhongBanController;
+use App\Http\Controllers\TongNgayNghisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::middleware('auth:nhanvien')->prefix('admin')->group(function () {
     Route::resources([
         'phongban' => PhongBanController::class,
         'chucvu' => ChucVuController::class,
-        'nhanvien' => NhanViensController::class
+        'nhanvien' => NhanViensController::class,
+        'ngayphep' => TongNgayNghisController::class
     ]);
 });

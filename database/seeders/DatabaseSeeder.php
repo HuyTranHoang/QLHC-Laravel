@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\ChucVu;
 use App\Models\NhanVien;
 use App\Models\PhongBan;
+use App\Models\TongNgayNghi;
 use Database\Factories\PhongBanFactory;
 use Illuminate\Database\Seeder;
 
@@ -18,11 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(10)->create();
+//         \App\Models\User::factory(10)->create();
 
          PhongBan::factory(5)->create();
          ChucVu::factory(5)->create();
          NhanVien::factory(5)->create();
+         TongNgayNghi::factory(5)->create();
 
 //        for ($i = 0; $i < 5; $i ++) {
 //            $phongBan = PhongBan::factory()->create();

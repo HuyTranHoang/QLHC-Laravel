@@ -18,13 +18,17 @@ class NhanVien extends Authenticatable
     protected $hidden = [
         'password',
     ];
-    
+
     public function PhongBan() {
         return $this->belongsTo(PhongBan::class,'maPhong','maPhong');
     }
 
     public function ChucVu() {
         return $this->belongsTo(ChucVu::class,'maCV','maCV');
+    }
+
+    public function TongNgayNghi() {
+        return $this->hasMany(TongNgayNghi::class,'maNV','maNV');
     }
 
 }

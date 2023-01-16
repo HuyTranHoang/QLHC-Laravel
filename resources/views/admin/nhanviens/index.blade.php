@@ -28,6 +28,9 @@
             @endunless
         </table>
     </div>
+    <div>
+        {{$nhanviens->links()}}
+    </div>
 
 
 </x-layout>

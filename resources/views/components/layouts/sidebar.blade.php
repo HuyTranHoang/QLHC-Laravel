@@ -11,21 +11,23 @@
                 <i class="fa-duotone fa-house me-2"></i> Trang chủ </a>
         </li>
         <li>
-            <a href="/admin/phongban" class="nav-link
+            <a href="{{route('phongban.index')}}" class="nav-link
             @if(Str::contains(request()->getPathInfo(), 'phongban')) active @else text-dark @endif">
                 <i class="fa-regular fa-apartment me-2"></i> Phòng ban </a>
         </li>
         <li>
-            <a href="/admin/chucvu" class="nav-link
+            <a href="{{route('chucvu.index')}}" class="nav-link
             @if(Str::contains(request()->getPathInfo(), 'chucvu')) active @else text-dark @endif">
                 <i class="fa-solid fa-badge-check me-2"></i> Chức vụ </a>
         </li>
         <li>
-            <a href="/admin/nhanvien" class="nav-link text-dark">
+            <a href="{{route('nhanvien.index')}}" class="nav-link
+            @if(Str::contains(request()->getPathInfo(), 'nhanvien')) active @else text-dark @endif">
                 <i class="fa-solid fa-user me-2"></i> Nhân viên </a>
         </li>
         <li>
-            <a href="/admin/ngayphep" class="nav-link text-dark">
+            <a href="{{route('ngayphep.index')}}" class="nav-link
+            @if(Str::contains(request()->getPathInfo(), 'ngayphep')) active @else text-dark @endif">
                 <i class="fa-duotone fa-calendar-days me-2"></i> Ngày phép </a>
         </li>
         <li>

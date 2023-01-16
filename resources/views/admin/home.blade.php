@@ -1,7 +1,5 @@
 <x-layout :title="$title">
     <div class="mt-3">
-        <h3 class="text-center">HOME PLACEHOLDER</h3>
-        <hr>
         <div class="row">
             <div class="col-3">
                 <img src=" {{asset('images/cuteGura.jpg')}} " class="img-fluid" alt="...">
@@ -15,7 +13,7 @@
                 </div>
             </div>
             <div class="col-3">
-                <img src=" {{asset('images/cuteMaidGura.jpg')}} " class="img-fluid" style="width: 250px">
+                <img src=" {{asset('images/cuteMaidGura.jpg')}} " class="img-fluid" style="width: 250px" alt="">
             </div>
         </div>
     </div>
