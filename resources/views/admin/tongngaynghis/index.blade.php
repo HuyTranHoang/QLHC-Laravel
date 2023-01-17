@@ -18,11 +18,11 @@
             </tr>
             @unless(count($tongngaynghis) == 0)
                 @foreach($tongngaynghis as $index => $tongngaynghi)
-                    <x-TongNgayNghi.tableRow :tongngaynghi="$tongngaynghi" :index="$index"/>
+                    <x-tableRow.TongNgayNghi :tongngaynghi="$tongngaynghi" :index="$index"/>
                 @endforeach
             @else
                 <tr>
-                    <td colspan="4">Không tìm thấy ngày nghỉ nào</td>
+                    <td colspan="5">Không tìm thấy ngày nghỉ nào</td>
                 </tr>
             @endunless
         </table>

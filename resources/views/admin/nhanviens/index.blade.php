@@ -19,7 +19,7 @@
             </tr>
             @unless(count($nhanviens) == 0)
                 @foreach($nhanviens as $index => $nhanvien)
-                    <x-NhanVien.tableRow :nhanvien="$nhanvien" :index="$index"/>
+                    <x-tableRow.NhanVien :nhanvien="$nhanvien" :index="$index"/>
                 @endforeach
             @else
                 <tr>

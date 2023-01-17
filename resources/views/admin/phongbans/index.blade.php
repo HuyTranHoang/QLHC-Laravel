@@ -18,7 +18,7 @@
 
             @unless(count($phongbans) == 0)
                 @foreach($phongbans as $index => $phongban)
-                    <x-PhongBan.tableRow :phongban="$phongban" :index="$index"/>
+                    <x-tableRow.PhongBan :phongban="$phongban" :index="$index"/>
                 @endforeach
             @else
                 <tr>

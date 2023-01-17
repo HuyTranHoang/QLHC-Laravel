@@ -31,11 +31,13 @@
                 <i class="fa-duotone fa-calendar-days me-2"></i> Ngày phép </a>
         </li>
         <li>
-            <a href="/admin/phieunghiphep" class="nav-link text-dark">
+            <a href="{{route('phieunghi.index')}}" class="nav-link
+            @if(Str::contains(request()->getPathInfo(), 'phieunghi') && !Str::contains(request()->getPathInfo(), 'create')) active @else text-dark @endif">
                 <i class="fa-regular fa-notes me-2"></i> Phiếu nghỉ phép </a>
         </li>
         <li>
-            <a href="/admin/taophieu" class="nav-link text-dark">
+            <a href="{{route('phieunghi.create')}}" class="nav-link
+            @if(Str::contains(request()->getPathInfo(), 'phieunghi') && Str::contains(request()->getPathInfo(), 'create')) active @else text-dark @endif">
                 <i class="fa-duotone fa-note"></i> Tạo phếu </a>
         </li>
         <li>

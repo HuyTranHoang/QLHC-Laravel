@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChucVuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NhanViensController;
+use App\Http\Controllers\PhieuNghisController;
 use App\Http\Controllers\PhongBanController;
 use App\Http\Controllers\TongNgayNghisController;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,6 @@ Route::get('/',[NhanViensController::class,'login']) -> name('login');
 Route::post('/authenticate',[NhanViensController::class,'authenticate']);
 Route::get('admin/logout',[NhanViensController::class,'logout']);
 
-
-
 Route::middleware('auth:nhanvien')->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin/home')->with('title', 'Quản Lý Hành Chính');
@@ -32,6 +31,7 @@ Route::middleware('auth:nhanvien')->prefix('admin')->group(function () {
         'phongban' => PhongBanController::class,
         'chucvu' => ChucVuController::class,
         'nhanvien' => NhanViensController::class,
-        'ngayphep' => TongNgayNghisController::class
+        'ngayphep' => TongNgayNghisController::class,
+        'phieunghi' => PhieuNghisController::class
     ]);
 });

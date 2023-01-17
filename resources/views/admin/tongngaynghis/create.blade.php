@@ -51,7 +51,7 @@
                 <label for="tongSoNgay" class="col-2 col-form-label offset-2">Tổng số ngày</label>
                 <div class="col">
                     <input type="text" class="form-control shadow-sm w-50" id="tongSoNgay" name="tongSoNgay"
-                           placeholder="Tổng số ngày...">
+                           placeholder="Tổng số ngày..." value="{{old('tongSoNgay')}}">
                 </div>
             </div>
 

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 
 class NhanVien extends Authenticatable
 {
@@ -29,6 +28,10 @@ class NhanVien extends Authenticatable
 
     public function TongNgayNghi() {
         return $this->hasMany(TongNgayNghi::class,'maNV','maNV');
+    }
+
+    public function PhieuNghi() {
+        return $this->hasMany(PhieuNghi::class,'maNV','maNV');
     }
 
 }

@@ -17,7 +17,7 @@
 
             @unless(count($chucvus) == 0)
                 @foreach($chucvus as $index => $chucvu)
-                    <x-ChucVu.tableRow :chucvu="$chucvu" :index="$index"/>
+                    <x-tableRow.ChucVu :chucvu="$chucvu" :index="$index"/>
                 @endforeach
             @else
                 <tr>
