@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ChucVuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkadmin');
+    }
     public function index() {
         return view ('admin.chucvus.index',[
             'chucvus' => ChucVu::paginate(8),

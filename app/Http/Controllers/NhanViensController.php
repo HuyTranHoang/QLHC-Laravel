@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 class NhanViensController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('checkadmin')->except(['login','authenticate','logout']);
+    }
+
     public function login() {
         return view('login');
     }
@@ -27,7 +32,7 @@ class NhanViensController extends Controller
             return redirect('/admin')->with('message','You are now logged in!');
         }
 
-        return redirect()->to('/')->withErrors(['message'=>'Sai tài khoản mật khẩu']);
+        return redirect()->to('/')->with('message','Sai tài khoản mật khẩu');
     }
 
     public function logout(Request $request) {

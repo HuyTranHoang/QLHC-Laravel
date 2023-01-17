@@ -4,6 +4,7 @@
 //TODO Phân Quyền Admin - User, Admin chỉ dc duyệt phiếu trong cùng phòng ban, chỉ hiện phiếu của bản thân
 namespace App\Http\Controllers;
 
+use App\Models\NhanVien;
 use App\Models\PhieuNghi;
 use App\Models\PhongBan;
 use App\Models\TongNgayNghi;
@@ -13,10 +14,18 @@ use Illuminate\Support\Facades\DB;
 
 class PhieuNghisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkadmin')->only(['edit','update']);
+    }
     public function index()
     {
+        $phongBanUserDangNhap = NhanVien::find(Auth::guard('nhanvien')->id())->maPhong;
+        $nhanVienCungPhong = NhanVien::where('maPhong',$phongBanUserDangNhap);
         return view ('admin.phieunghis.index',[
             'phieunghis' => PhieuNghi::paginate(8),
+            'phongbanuser' => $phongBanUserDangNhap,
+            'phieunghibanthan' => PhieuNghi::where('maNV',Auth::guard('nhanvien')->id())->get(),
             'title' => 'QLHC | PhieuNghi'
         ]);
     }
@@ -89,7 +98,7 @@ class PhieuNghisController extends Controller
             'loaiPhep' => 'required'
         ]);
 
-        $formFields['maNV'] = Auth::guard('nhanvien')->id();
+        $formFields['maNV'] = $phieunghi->maNV;
         $formFields['ngayDuyet'] = now();
         $formFields['ghiChu'] = 'Chưa có';
         $formFields['nguoiDuyet'] = Auth::guard('nhanvien')->id();
@@ -100,7 +109,8 @@ class PhieuNghisController extends Controller
             $formFields['trangThai'] = 1;
             //Nên làm thành 1-1 hoặc where theo năm thay vì first()
             $soNgayHienTai = $phieunghi->nhanvien->tongngaynghi->first()->soNgayHienTai + $request->tongSoNgay;
-            DB::table('tong_ngay_nghis')->where('maNV',$phieunghi->maNV)->update(['soNgayHienTai' => $soNgayHienTai]);
+//            DB::table('tong_ngay_nghis')->where('maNV',$phieunghi->maNV)->update(['soNgayHienTai' => $soNgayHienTai]);
+            $phieunghi->nhanvien->tongngaynghi->first()->update(['soNgayHienTai' => $soNgayHienTai]);
         }
         $phieunghi->update($formFields);
         toastr()->success('Duyệt phiếu thành công!');

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PhongBanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkadmin');
+    }
+
     public function index() {
         return view ('admin.phongbans.index',[
             'phongbans' => PhongBan::paginate(8),

@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class TongNgayNghisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkadmin');
+    }
+
     public function index()
     {
         return view ('admin.tongngaynghis.index',[

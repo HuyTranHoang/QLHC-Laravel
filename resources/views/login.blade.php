@@ -16,6 +16,8 @@
         <h1 class="navbar-text position-absolute top-50 start-50 translate-middle text-white">Quản Lý Hành Chính</h1>
     </div>
 </nav>
+
+{{--{{dd(request())}}--}}
 <section class="loginform mt-5">
     <div class="row">
         <div class="col"><img src="{{asset('images/loginForm.jpeg')}}" class="img-fluid" alt=""></div>
@@ -27,7 +29,7 @@
                 </div>
                 <div class="form-floating mb-3 col-11">
                     <input type="text" class="form-control pe-6" id="username" name="username"
-                           placeholder="username">
+                           placeholder="username" value="{{old('username')}}">
                     <label for="username">Tài khoản</label>
                     <span><i class="fa-regular fa-at"></i></span>
                 </div>
@@ -40,9 +42,9 @@
                 <button class="btn btn-sakura text-white">Đăng nhập <i class="ps-3 fa-duotone fa-right-to-bracket"></i>
                 </button>
                 <div class="col">
-                    @if(session('errors'))
+                    @if(Session::has('message'))
                         <div class="text-danger mt-1">
-                            <h6>Sai thông tin tài khoản</h6>
+                            <h6>{{Session::get('message')}}</h6>
                         </div>
                     @endif
                 </div>

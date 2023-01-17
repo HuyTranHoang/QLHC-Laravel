@@ -10,6 +10,7 @@
             @if(request()->getPathInfo()=='/admin') active @else text-dark @endif" aria-current="page">
                 <i class="fa-duotone fa-house me-2"></i> Trang chủ </a>
         </li>
+        @if(auth()->guard('nhanvien')->user()->maCV == 1)
         <li>
             <a href="{{route('phongban.index')}}" class="nav-link
             @if(Str::contains(request()->getPathInfo(), 'phongban')) active @else text-dark @endif">
@@ -30,6 +31,7 @@
             @if(Str::contains(request()->getPathInfo(), 'ngayphep')) active @else text-dark @endif">
                 <i class="fa-duotone fa-calendar-days me-2"></i> Ngày phép </a>
         </li>
+        @endif
         <li>
             <a href="{{route('phieunghi.index')}}" class="nav-link
             @if(Str::contains(request()->getPathInfo(), 'phieunghi') && !Str::contains(request()->getPathInfo(), 'create')) active @else text-dark @endif">
