@@ -16,14 +16,20 @@
                 <th>Ngày duyệt</th>
             </tr>
             @unless(count($phieunghis) == 0)
+                @php $count = 0; @endphp
                 @foreach($phieunghis as $index => $phieunghi)
-                    <x-tableRow.PhieuNghi-admin :phieunghi="$phieunghi" :index="$index"/>
+                    @if($phieunghi->trangThai == 0)
+                        @php $count++ @endphp
+                        <x-tableRow.PhieuNghi-admin :phieunghi="$phieunghi" :index="$index"/>
+                    @endif
                 @endforeach
-            @else
+            @endunless
+            @if($count == 0)
                 <tr>
                     <td colspan="10">Không tìm thấy phiếu nghỉ chờ duyệt nào</td>
                 </tr>
-            @endunless
+            @endif
+
         </table>
 
         <h3>DANH SÁCH PHIẾU</h3>

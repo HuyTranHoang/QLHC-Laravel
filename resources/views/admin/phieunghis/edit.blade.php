@@ -2,7 +2,9 @@
     <div class="text-center mt-3">
         <h3>DUYỆT MỚI PHIẾU</h3>
         <hr>
-        <form method="POST" action="index.php?act=taophieu&q=confirm" class="">
+        <form method="POST" action="{{route('phieunghi.update',[$phieunghi->maPhieu])}}">
+            @csrf
+            @method('PUT')
             <div class="mb-3 mt-3 row justify-content-center">
                 <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
                 <div class="col">

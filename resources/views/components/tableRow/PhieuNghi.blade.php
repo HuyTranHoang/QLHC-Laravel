@@ -6,7 +6,7 @@
     <td>{{formatDate($phieunghi->tuNgay)}}</td>
     <td>{{formatDate($phieunghi->denNgay)}}</td>
     <td>{{getLoaiPhep($phieunghi->loaiPhep)}}</td>
-    <td>{{getTrangThai($phieunghi->trangThai)}}</td>
+    <td>{!! getTrangThai($phieunghi->trangThai) !!}</td>
     <td>{{formatDate($phieunghi->ngayDuyet)}}</td>
 </tr>
 
